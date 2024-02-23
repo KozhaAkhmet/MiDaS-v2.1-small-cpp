@@ -64,4 +64,3 @@ int main() {
   cap.release();
 
   return 0;
-}
