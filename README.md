@@ -99,7 +99,7 @@ Rename the include file to flatbuffer_include. Then place the include directory 
 
 ---
 
-Currently (11.20.2023), you can simply install dynamic libraries from apt:
+Library for camera capture and image processing. Currently (11.12.2023), you can simply install dynamic libraries from apt:
 
 ```bash
 $ sudo apt install libopencv-dev
