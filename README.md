@@ -13,7 +13,7 @@
 
 Here I used the v2.1 small MiDAS model which is the best in performance. [See MiDAS Source Code](https://github.com/isl-org/MiDaS).
 
- This is a part of my bachelor's diploma project ["Making an Autonomous Car with Depth Estimation"]().  
+ This is a part of my bachelor's graduation project ["Making an Autonomous Car with Depth Estimation"](https://github.com/KozhaAkhmet/depth-car).  
 
 ## 2. Results
 
@@ -123,6 +123,7 @@ Compile
 ```
 $ cmake ..
 $ make
+$ cd ..
 ```
 
  Make the binary executable
