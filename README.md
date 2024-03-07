@@ -119,4 +119,17 @@ Now execute
 ```bash
 $ sudo ./build/opencv_example/opencv_example # Here you should use sudo to able to access the camera.
 ```
+## License
+Licensed under the [GNU General Public License](https://github.com/KozhaAkhmet/depth-car/blob/main/LICENSE).
+
+## Contact
+<i>Developed by <a href="https://github.com/KozhaAkhmet">Kozha Akhmet Abdramanov</a>
+
+* Robot Car with Depth Estimation Source Code: 
+[KozhaAkhmet/depth-car](https://github.com/KozhaAkhmet/depth-car)
+* Midas in C++ Source Code: 
+[KozhaAkhmet/MiDaS-v2.1-small-cpp](https://github.com/KozhaAkhmet/MiDaS-v2.1-small-cpp)
+
+Feel free to contact me from my email address: [kozha.akhmt@gmail.com](mailto:kozha.akhmt@gmail.com).
+
 
