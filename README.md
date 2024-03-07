@@ -57,58 +57,40 @@ Here how the directory tree should look like:
 │   └── opencv_example.cpp
 └── README.md
 ```
+## TensorFlow Lite
+Trained model importer to run interference of MiDaS.
 
-### TensorFlow Lite
+The library can be included by compiling it from the source. The steps are available at [Source File](https://github.com/tensorflow/tensorflow). 
+The library provides build tool solutions with CMake and Bazel. For more information check out the official [documentation](https://www.tensorflow.org/lite/guide).
 
----
-To include the library, you only can compile it by [Source File](https://github.com/tensorflow/tensorflow). According to [TensorFlow Lite Documentation](https://www.tensorflow.org/lite/guide), currently can be compiled by CMake and Bazel. I do not recommend doing it in the device itself, you can cross-compile instead. Also, the CMake installation has some problems, so Bazel is the only choice. You can simply pull [the Docker TensorFlow Image](https://hub.docker.com/r/tensorflow/tensorflow/). It comes with installed Bazel and a downloaded Tensorflow source file. After compiling, move the compiled directory to your device then you will able to include to CMake as a shared library.
+**The compilation on the device is not recommended due to its low power. Prefer compiling with cross-compilation through a more powerful machine.**
 
-Here is [the Cross-compile Documentation](https://www.tensorflow.org/lite/guide/build_cmake_arm).
+The CMake installation may cause some problems, use Bazel in such cases. There is also a docker image available to provide a simpler development at [here](https://hub.docker.com/r/tensorflow/tensorflow/).  The image includes Bazel and Tensorflow source code. 
 
-#### Preparing Headers for The TensorFlow Lite
+After compilation, move the directory to your device and include CMake as a shared library. For more information check out the [the cross-compilation documentation](https://www.tensorflow.org/lite/guide/build_cmake_arm).
 
->You can find a shared library in: bazel-bin/tensorflow/lite/libtensorflowlite.so.
+### Preparing Headers for The TensorFlow Lite
+
+>You can find a shared library in `bazel-bin/tensorflow lite/libtensorflowlite.so`.
 >
->Currently, there is no straightforward way to extract all header files needed, so you must include all header files in tensorflow/lite/ from the TensorFlow repository. Additionally, you will need header files from FlatBuffers and Abseil.
+>Currently, there is no straightforward way to extract all header files needed, so you must include all header files in `tensorflow/lite/` from the TensorFlow repository. Additionally, you will need header files from FlatBuffers and Abseil. *[ From  TensorFlow Lite for ARM boards](https://www.tensorflow.org/lite/guide/build_arm)*
 
-*[- From  TensorFlow Lite for ARM boards](https://www.tensorflow.org/lite/guide/build_arm)*
+A script is available [here](source2include.sh) to automate header file extraction from the source.
 
-To extract all header files from the source I added [the script](source2include.sh) that does exactly it.
-
-Example Usage:
-
-```
-$ ./source2include.sh   your_source_directory_name   extracted_directory_name
-```
-
-Extracting files:
-
-```
-$ ./source2include.sh   tensorflow_src  tensorflow_include 
-```
-
-After, you need to clone the flatbuffer repository to include their header files too. We need only the include directory in the flatbufffer source file, 
-
+Clone the flatbuffer repository to include their header files. 
 ```bash
 $ git clone https://github.com/google/flatbuffers.git # FlatBuffer Repository
 ```
+Place the include directory alongside the project.
 
-Rename the include file to flatbuffer_include. Then place the include directory alongside the project as shown above.
+## OpenCV
 
-### OpenCV
-
----
-
-Library for camera capture and image processing. Currently (11.12.2023), you can simply install dynamic libraries from apt:
+OpenCV provides features such as camera capture and image processing.  The library is available at most Debian-based distributions through apt as of December 2023.
 
 ```bash
 $ sudo apt install libopencv-dev
 ```
-
-In another way, you can also compile it from the source. Here the [documentation](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html)
-
-After successful installation place the dependencies as shown on the directory tree.
-
+The library is also available as a source. Check out the [documentation](https://docs.opencv.org/4.x/d7/d9f/tutorial_linux_install.html) to compile from the source.
 ### Compile and Execute
 
 Make the build directory
