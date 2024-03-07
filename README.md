@@ -1,4 +1,4 @@
-# MiDaS-v2.1-small-cpp
+# midas-cpp
 
 ## Table Of Contents
 
