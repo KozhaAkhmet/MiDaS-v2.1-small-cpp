@@ -5,19 +5,20 @@
 1. About
 2. Results
 3. Installation
-4. References
+4. License
+5. Contact
 
 ## 1. About the Project
 
- A Monocular depth estimation with MiDAS, TensorFlow Lite and OpenCV on The Raspberry Pi 4. All in C++.
+Monocular depth estimation with MiDAS, TensorFlow Lite, and OpenCV on the Raspberry Pi 4 — all in C++.
 
 Here I used the v2.1 small MiDAS model which is the best in performance. [See MiDAS Source Code](https://github.com/isl-org/MiDaS).
 
- This is a part of my bachelor's graduation project ["Making an Autonomous Car with Depth Estimation"](https://github.com/KozhaAkhmet/depth-car).  
+This is part of my bachelor's graduation project ["Making an Autonomous Car with Depth Estimation"](https://github.com/KozhaAkhmet/depth-car).
 
 ## 2. Results
 
-This project is tested on Raspberry Pi 4 Model B with 4 GB RAM with the 64-bit Ubuntu 22.04. Used a 3A power supply and without overclocking. Here are the results:
+This project is tested on a Raspberry Pi 4 Model B with 4 GB RAM, running 64-bit Ubuntu 22.04 without overclocking, using a 3A power supply. Here are the results:
 
 | Device         | RAM  | OS     | Multithread(All) Performance | Single Thread Performance |
 | -------------- | ---- | ------ | ---------------------------- | ------------------------- |
@@ -33,7 +34,7 @@ This project is tested on Raspberry Pi 4 Model B with 4 GB RAM with the 64-bit U
 | TensorFlow Lite | v2.12.0 |
 | OpenCV          | v4.6.0  |
 
-Here how the directory tree should look like:
+Here's how the directory tree should look:
 
 ```
 .
@@ -58,7 +59,7 @@ Here how the directory tree should look like:
 └── README.md
 ```
 ## TensorFlow Lite
-Trained model importer to run interference of MiDaS.
+Trained model importer to run inference of MiDaS.
 
 The library can be included by compiling it from the source. The steps are available at [Source File](https://github.com/tensorflow/tensorflow). 
 The library provides build tool solutions with CMake and Bazel. For more information check out the official [documentation](https://www.tensorflow.org/lite/guide).
@@ -73,7 +74,7 @@ After compilation, move the directory to your device and include CMake as a shar
 
 >You can find a shared library in `bazel-bin/tensorflow lite/libtensorflowlite.so`.
 >
->Currently, there is no straightforward way to extract all header files needed, so you must include all header files in `tensorflow/lite/` from the TensorFlow repository. Additionally, you will need header files from FlatBuffers and Abseil. *[ From  TensorFlow Lite for ARM boards](https://www.tensorflow.org/lite/guide/build_arm)*
+>Currently, there is no straightforward way to extract all header files needed, so you must include all header files in `tensorflow/lite/` from the TensorFlow repository. Additionally, you will need header files from FlatBuffers and Abseil. *[From TensorFlow Lite for ARM boards](https://www.tensorflow.org/lite/guide/build_arm)*
 
 A script is available [here](source2include.sh) to automate header file extraction from the source.
 
@@ -85,7 +86,7 @@ Place the include directory alongside the project.
 
 ## OpenCV
 
-OpenCV provides features such as camera capture and image processing.  The library is available at most Debian-based distributions through apt as of December 2023.
+OpenCV provides features such as camera capture and image processing. The library is available at most Debian-based distributions through apt as of December 2023.
 
 ```bash
 $ sudo apt install libopencv-dev
@@ -117,13 +118,13 @@ $ sudo chmod +x build/opencv_example/opencv_example
 Now execute
 
 ```bash
-$ sudo ./build/opencv_example/opencv_example # Here you should use sudo to able to access the camera.
+$ sudo ./build/opencv_example/opencv_example # Here you should use sudo to be able to access the camera.
 ```
 ## License
 Licensed under the [GNU General Public License](https://github.com/KozhaAkhmet/depth-car/blob/main/LICENSE).
 
 ## Contact
-<i>Developed by <a href="https://github.com/KozhaAkhmet">Kozha Akhmet Abdramanov</a>
+<i>Developed by <a href="https://github.com/KozhaAkhmet">Kozha Akhmet Abdramanov</a></i>
 
 * Robot Car with Depth Estimation Source Code: 
 [KozhaAkhmet/depth-car](https://github.com/KozhaAkhmet/depth-car)
